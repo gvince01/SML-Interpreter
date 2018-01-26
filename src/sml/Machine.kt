@@ -127,6 +127,19 @@ data class Machine(var pc: Int, val noOfRegisters: Int) {
                 MulInstruction(label, r, s1, s2)
             }
 
+            "div" -> {
+                r = scanInt()
+                s1 = scanInt()
+                s2 = scanInt()
+                DivInstruction(label, r, s1, s2)
+            }
+
+            "out" -> {
+                s1 = scanInt()
+                OutInstruction(label, s1)
+            }
+
+
             else -> {
                 NoOpInstruction(label, line)
             }
