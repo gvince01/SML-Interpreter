@@ -100,7 +100,8 @@ data class Machine(var pc: Int, val noOfRegisters: Int) {
         val r: Int
 
         val ins = scan()
-        val kclass = Class.forName(ins + "Instruction")
+        val modIns = ins.capitalize()
+        val kclass = Class.forName("sml.instructions." + modIns + "Instruction").kotlin
         println("kclass constructors " +  kclass.constructors)
         return when (ins) { // replace with reflection
             "add" -> {
