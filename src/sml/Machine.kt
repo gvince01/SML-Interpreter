@@ -7,6 +7,9 @@ import java.io.File
 import java.io.IOException
 import java.util.Scanner
 import kotlin.collections.ArrayList
+import kotlin.reflect.full.createInstance
+import kotlin.reflect.full.primaryConstructor
+import kotlin.reflect.jvm.javaConstructor
 
 /*
  * The machine language interpreter
@@ -102,7 +105,6 @@ data class Machine(var pc: Int, val noOfRegisters: Int) {
         val ins = scan()
         val modIns = ins.capitalize()
         val kclass = Class.forName("sml.instructions." + modIns + "Instruction").kotlin
-        println("kclass constructors " +  kclass.constructors)
         return when (ins) { // replace with reflection
             "add" -> {
                 r = scanInt()

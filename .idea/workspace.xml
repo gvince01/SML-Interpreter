@@ -2,12 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="56e87f7a-a22b-41f2-b2e1-b36b97a4f65a" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/out/production/coursework-one/sml/instructions/addInstruction.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/coursework-one/sml/instructions/divInstruction.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/coursework-one/sml/instructions/linInstruction.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/coursework-one/sml/instructions/mulInstruction.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/coursework-one/sml/instructions/outInstruction.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/coursework-one/sml/instructions/subInstruction.class" afterPath="" />
       <change beforePath="$PROJECT_DIR$/src/sml/Machine.kt" afterPath="$PROJECT_DIR$/src/sml/Machine.kt" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -43,10 +37,10 @@
       <file leaf-file-name="Machine.kt" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/sml/Machine.kt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="268">
-              <caret line="102" column="37" lean-forward="false" selection-start-line="102" selection-start-column="37" selection-end-line="102" selection-end-column="37" />
+            <state relative-caret-position="359">
+              <caret line="106" column="87" lean-forward="false" selection-start-line="106" selection-start-column="87" selection-end-line="106" selection-end-column="87" />
               <folding>
-                <element signature="e#13#224#0" expanded="true" />
+                <element signature="e#13#354#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -204,19 +198,6 @@
               <item name="coursework-one" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="coursework-one" type="b2602c69:ProjectViewProjectNode" />
-              <item name="coursework-one" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="sml" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="coursework-one" type="b2602c69:ProjectViewProjectNode" />
-              <item name="coursework-one" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="sml" type="462c0819:PsiDirectoryNode" />
-              <item name="instructions" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
@@ -362,12 +343,12 @@
       <updated>1516926460557</updated>
       <workItem from="1516926468675" duration="5430000" />
       <workItem from="1516975677540" duration="243000" />
-      <workItem from="1516983897767" duration="1489000" />
+      <workItem from="1516983897767" duration="2640000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="7162000" />
+    <option name="totallyTimeSpent" value="8313000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1440" y="-48" width="3200" height="1820" extended-state="6" />
@@ -381,7 +362,7 @@
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32985657" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32985657" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.21642764" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -497,7 +478,7 @@
         <state relative-caret-position="5453">
           <caret line="139" column="13" lean-forward="false" selection-start-line="139" selection-start-column="13" selection-end-line="139" selection-end-column="13" />
           <folding>
-            <element signature="e#13#224#0" expanded="true" />
+            <element signature="e#13#354#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -557,7 +538,7 @@
         <state relative-caret-position="5699">
           <caret line="139" column="13" lean-forward="true" selection-start-line="139" selection-start-column="13" selection-end-line="139" selection-end-column="13" />
           <folding>
-            <element signature="e#13#224#0" expanded="true" />
+            <element signature="e#13#354#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -701,10 +682,10 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/sml/Machine.kt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="268">
-          <caret line="102" column="37" lean-forward="false" selection-start-line="102" selection-start-column="37" selection-end-line="102" selection-end-column="37" />
+        <state relative-caret-position="359">
+          <caret line="106" column="87" lean-forward="false" selection-start-line="106" selection-start-column="87" selection-end-line="106" selection-end-column="87" />
           <folding>
-            <element signature="e#13#224#0" expanded="true" />
+            <element signature="e#13#354#0" expanded="true" />
           </folding>
         </state>
       </provider>
