@@ -14,10 +14,10 @@ class SubInstruction(label: String, val result: Int, val op1: Int, val op2: Int)
     override fun execute(m: Machine) {
         val value1 = m.registers.getRegister(op1)
         val value2 = m.registers.getRegister(op2)
-        m.registers.setRegister(result, value1 - value2)
+        m.registers.setRegister(result, value2 - value1)
     }
 
     override fun toString(): String{
-        return super.toString() + " " + op1 + " - " + op2 + " to " + result
+        return super.toString() + " " + op2 + " - " + op1 + " to " + result
     }
 }
