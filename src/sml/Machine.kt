@@ -55,7 +55,7 @@ data class Machine(var pc: Int, val noOfRegisters: Int) {
     }
 
     // root of files
-    private val PATH = System.getProperty("user.dir") + "/"
+    private val PATH = System.getProperty("user.dir") + "/src/"
     // input line of file
     private var line: String = ""
 
