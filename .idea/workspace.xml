@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="56e87f7a-a22b-41f2-b2e1-b36b97a4f65a" name="Default" comment="" />
+    <list default="true" id="56e87f7a-a22b-41f2-b2e1-b36b97a4f65a" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/src/sml/Machine.kt" afterPath="$PROJECT_DIR$/src/sml/Machine.kt" />
+      <change beforePath="$PROJECT_DIR$/src/sml/instructions/MulInstruction.kt" afterPath="$PROJECT_DIR$/src/sml/instructions/MulInstruction.kt" />
+      <change beforePath="$PROJECT_DIR$/src/test1.sml" afterPath="$PROJECT_DIR$/src/test1.sml" />
+    </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -22,14 +26,46 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MulInstruction.kt" pinned="false" current-in-tab="true">
+      <file leaf-file-name="MulInstruction.kt" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/sml/instructions/MulInstruction.kt">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="492">
-              <caret line="12" column="106" lean-forward="false" selection-start-line="12" selection-start-column="106" selection-end-line="12" selection-end-column="106" />
+              <caret line="12" column="20" lean-forward="false" selection-start-line="12" selection-start-column="20" selection-end-line="12" selection-end-column="20" />
               <folding>
                 <element signature="e#27#68#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Machine.kt" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/sml/Machine.kt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1005">
+              <caret line="126" column="20" lean-forward="true" selection-start-line="126" selection-start-column="20" selection-end-line="126" selection-end-column="20" />
+              <folding>
+                <element signature="e#13#224#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="test1.sml" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/test1.sml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="82">
+              <caret line="2" column="7" lean-forward="false" selection-start-line="2" selection-start-column="7" selection-end-line="2" selection-end-column="7" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Instruction.kt" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/sml/Instruction.kt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="759">
+              <caret line="40" column="36" lean-forward="true" selection-start-line="40" selection-start-column="36" selection-end-line="40" selection-end-column="36" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -66,12 +102,12 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/test1.sml" />
         <option value="$PROJECT_DIR$/src/sml/Instruction.kt" />
         <option value="$PROJECT_DIR$/src/sml/instructions/AddInstruction.kt" />
-        <option value="$PROJECT_DIR$/src/sml/Machine.kt" />
         <option value="$PROJECT_DIR$/src/sml/instructions/SubInstruction.kt" />
         <option value="$PROJECT_DIR$/src/sml/instructions/MulInstruction.kt" />
+        <option value="$PROJECT_DIR$/src/sml/Machine.kt" />
+        <option value="$PROJECT_DIR$/src/test1.sml" />
       </list>
     </option>
   </component>
@@ -276,12 +312,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1516926460557</updated>
-      <workItem from="1516926468675" duration="4009000" />
+      <workItem from="1516926468675" duration="4122000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="4009000" />
+    <option name="totallyTimeSpent" value="4122000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1440" y="-20" width="3200" height="1820" extended-state="6" />
@@ -352,14 +388,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/sml/Instruction.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1323">
-          <caret line="40" column="36" lean-forward="true" selection-start-line="40" selection-start-column="36" selection-end-line="40" selection-end-column="36" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/sml/instructions/AddInstruction.kt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="369">
@@ -378,28 +406,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/sml/Machine.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="738">
-          <caret line="120" column="16" lean-forward="false" selection-start-line="120" selection-start-column="16" selection-end-line="120" selection-end-column="16" />
-          <folding>
-            <element signature="e#13#277#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/sml/Registers.kt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="331">
           <caret line="10" column="11" lean-forward="false" selection-start-line="10" selection-start-column="11" selection-end-line="10" selection-end-column="11" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test1.sml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="164">
-          <caret line="4" column="0" lean-forward="true" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -430,13 +440,39 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/sml/Instruction.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="759">
+          <caret line="40" column="36" lean-forward="true" selection-start-line="40" selection-start-column="36" selection-end-line="40" selection-end-column="36" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/sml/instructions/MulInstruction.kt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="492">
-          <caret line="12" column="106" lean-forward="false" selection-start-line="12" selection-start-column="106" selection-end-line="12" selection-end-column="106" />
+          <caret line="12" column="20" lean-forward="false" selection-start-line="12" selection-start-column="20" selection-end-line="12" selection-end-column="20" />
           <folding>
             <element signature="e#27#68#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sml/Machine.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1005">
+          <caret line="126" column="20" lean-forward="true" selection-start-line="126" selection-start-column="20" selection-end-line="126" selection-end-column="20" />
+          <folding>
+            <element signature="e#13#224#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test1.sml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="82">
+          <caret line="2" column="7" lean-forward="false" selection-start-line="2" selection-start-column="7" selection-end-line="2" selection-end-column="7" />
+          <folding />
         </state>
       </provider>
     </entry>
