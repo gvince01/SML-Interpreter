@@ -19,6 +19,6 @@ class MulInstruction(label: String, val result: Int, val op1: Int, val op2: Int)
     }
 
     override fun toString(): String{
-        return super.toString() + " " + op2 + " * " + op1 + " to " + result
+        return super.toString() + " " + op1 + " * " + op2 + " to " + result
     }
 }
