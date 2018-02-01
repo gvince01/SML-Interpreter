@@ -144,6 +144,11 @@ data class Machine(var pc: Int, val noOfRegisters: Int) {
                 OutInstruction(label, s1)
             }
 
+            "bnz" -> {
+                s1 = scanInt()
+                BnzInstruction(label, s1, "L2")
+            }
+
 
             else -> {
                 NoOpInstruction(label, line)

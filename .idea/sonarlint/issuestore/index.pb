@@ -7,8 +7,6 @@ V
 &src/sml/instructions/SubInstruction.kt,4/8/48292ea454882b930e4997e4208b48b36a99103e
 F
 src/sml/Instruction.kt,8/c/8cf3be6a760dea3e362d025736a4d5dab1f9a131
-V
-&src/sml/instructions/BnzInstruction.kt,f/c/fcc24242f13062093325d768468dab56bc46b5b0
 W
 'src/sml/instructions/NoOpInstruction.kt,2/1/210fc03462dba12d5b420dccf62b8660fa81a2e7
 V
