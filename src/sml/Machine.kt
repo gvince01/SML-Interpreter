@@ -101,6 +101,7 @@ data class Machine(var pc: Int, val noOfRegisters: Int) {
         val s1: Int // Possible operands of the instruction
         val s2: Int
         val r: Int
+        var label2: String
 
         val ins = scan()
         val modIns = ins.capitalize()
@@ -146,7 +147,8 @@ data class Machine(var pc: Int, val noOfRegisters: Int) {
 
             "bnz" -> {
                 s1 = scanInt()
-                BnzInstruction(label, s1, "L2")
+                label2 = scan()
+                BnzInstruction(label, s1, label2)
             }
 
 
