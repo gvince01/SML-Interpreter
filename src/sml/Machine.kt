@@ -3,6 +3,7 @@ package sml
 import sml.instructions.*
 import sml.instructions.AddInstruction
 import sml.instructions.SubInstruction
+import java.awt.List
 import java.io.File
 import java.io.IOException
 import java.util.Scanner
@@ -10,6 +11,7 @@ import kotlin.collections.ArrayList
 import kotlin.reflect.full.createInstance
 import kotlin.reflect.full.primaryConstructor
 import kotlin.reflect.jvm.javaConstructor
+import kotlin.reflect.jvm.reflect
 
 /*
  * The machine language interpreter
@@ -106,6 +108,11 @@ data class Machine(var pc: Int, val noOfRegisters: Int) {
         val ins = scan()
         val modIns = ins.capitalize()
         val kclass = Class.forName("sml.instructions." + modIns + "Instruction").kotlin
+        val const = kclass.constructors.first()
+        val param = const.parameters.subList(0, const.parameters.size)
+        println("reflect args size " + param.size)
+        println(param)
+
         return when (ins) { // replace with reflection
             "add" -> {
                 r = scanInt()
