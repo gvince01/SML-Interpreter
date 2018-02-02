@@ -8,6 +8,8 @@ import java.io.File
 import java.io.IOException
 import java.util.Scanner
 import kotlin.collections.ArrayList
+import kotlin.reflect.KParameter
+import kotlin.reflect.KProperty
 import kotlin.reflect.full.createInstance
 import kotlin.reflect.full.primaryConstructor
 import kotlin.reflect.jvm.javaConstructor
@@ -109,61 +111,65 @@ data class Machine(var pc: Int, val noOfRegisters: Int) {
         val modIns = ins.capitalize()
         val kclass = Class.forName("sml.instructions." + modIns + "Instruction").kotlin
         val const = kclass.constructors.first()
-        val param = const.parameters.subList(0, const.parameters.size)
-        println("reflect args size " + param.size)
-        println(param)
-
-        return when (ins) { // replace with reflection
-            "add" -> {
-                r = scanInt()
-                s1 = scanInt()
-                s2 = scanInt()
-                AddInstruction(label, r, s1, s2)
-            }
-            "lin" -> {
-                r = scanInt()
-                s1 = scanInt()
-                LinInstruction(label, r, s1)
-            }
-
-            "sub" -> {
-                r = scanInt()
-                s1 = scanInt()
-                s2 = scanInt()
-                SubInstruction(label, r, s1, s2)
-            }
-
-            "mul" -> {
-                r = scanInt()
-                s1 = scanInt()
-                s2 = scanInt()
-                MulInstruction(label, r, s1, s2)
-            }
-
-            "div" -> {
-                r = scanInt()
-                s1 = scanInt()
-                s2 = scanInt()
-                DivInstruction(label, r, s1, s2)
-            }
-
-            "out" -> {
-                s1 = scanInt()
-                OutInstruction(label, s1)
-            }
-
-            "bnz" -> {
-                s1 = scanInt()
-                label2 = scan()
-                BnzInstruction(label, s1, label2)
-            }
-
-
-            else -> {
-                NoOpInstruction(label, line)
-            }
+        val param = const.parameters.size
+        var args =  mutableMapOf<KParameter, Any>()
+        args.put(const.parameters.get(0), label)
+        for(i in 1 until (param)){
+            var tmp = scanInt()
+            args.put(const.parameters.get(i), tmp)
         }
-    }
+        return const.callBy(args) as Instruction
+
+//        return when (ins) { // replace with reflection
+//            "add" -> {
+//                r = scanInt()
+//                s1 = scanInt()
+//                s2 = scanInt()
+//                AddInstruction(label, r, s1, s2)
+//            }
+//            "lin" -> {
+//                r = scanInt()
+//                s1 = scanInt()
+//                LinInstruction(label, r, s1)
+//            }
+//
+//            "sub" -> {
+//                r = scanInt()
+//                s1 = scanInt()
+//                s2 = scanInt()
+//                SubInstruction(label, r, s1, s2)
+//            }
+//
+//            "mul" -> {
+//                r = scanInt()
+//                s1 = scanInt()
+//                s2 = scanInt()
+//                MulInstruction(label, r, s1, s2)
+//            }
+//
+//            "div" -> {
+//                r = scanInt()
+//                s1 = scanInt()
+//                s2 = scanInt()
+//                DivInstruction(label, r, s1, s2)
+//            }
+//
+//            "out" -> {
+//                s1 = scanInt()
+//                OutInstruction(label, s1)
+//            }
+//
+//            "bnz" -> {
+//                s1 = scanInt()
+//                label2 = scan()
+//                BnzInstruction(label, s1, label2)
+//            }
+//
+//
+//            else -> {
+//                NoOpInstruction(label, line)
+//            }
+        }
 
     /*
      * Return the first word of line and remove it from line. If there is no
