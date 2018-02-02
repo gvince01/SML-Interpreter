@@ -2,7 +2,6 @@ package sml.instructions
 
 import sml.Instruction
 import sml.Machine
-import kotlin.test.todo
 
 /**
  *@author gvince01
@@ -12,7 +11,7 @@ import kotlin.test.todo
 class BnzInstruction(label: String, val op1: Int, val label2 : String) : Instruction(label, "bnz"){
 
     override fun execute(m: Machine) {
-        val labelInt = (label2[1].toInt() - 49)
+        val labelInt = (label2[1].toInt() - 48)
         if(op1 != 0) {
             m.pc = labelInt
             m.prog[m.pc].execute(m)

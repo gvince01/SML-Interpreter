@@ -114,8 +114,12 @@ data class Machine(var pc: Int, val noOfRegisters: Int) {
         val param = const.parameters.size
         var args =  mutableMapOf<KParameter, Any>()
         args.put(const.parameters.get(0), label)
+        var tmp : Any
         for(i in 1 until (param)){
-            var tmp = scanInt()
+            when (ins.equals("bnz") && i == (param - 1)){
+                true -> tmp = scan()
+                false -> tmp = scanInt()
+            }
             args.put(const.parameters[i], tmp)
         }
         return const.callBy(args) as Instruction
