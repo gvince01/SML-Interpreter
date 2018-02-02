@@ -116,7 +116,7 @@ data class Machine(var pc: Int, val noOfRegisters: Int) {
         args.put(const.parameters.get(0), label)
         for(i in 1 until (param)){
             var tmp = scanInt()
-            args.put(const.parameters.get(i), tmp)
+            args.put(const.parameters[i], tmp)
         }
         return const.callBy(args) as Instruction
 
