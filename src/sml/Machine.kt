@@ -106,16 +106,16 @@ data class Machine(var pc: Int, val noOfRegisters: Int) {
      */
     fun getInstruction(label: String): Instruction {
         val ins = scan()
-        val kclass = Class.forName("sml.instructions." + ins.capitalize() + "Instruction").kotlin
-        val const = kclass.primaryConstructor
-        return if (const == null) {
+        return try {
+            val kclass = Class.forName("sml.instructions." + ins.capitalize() + "Instruction").kotlin
+            val const = kclass.constructors.first()
+            var param = const.parameters.map {
+                    if (it.type.jvmErasure.equals(kotlin.Int::class)) scanInt() else scan()
+                }.toTypedArray()
+
+            const.call(*param) as Instruction
+        } catch (ex: ClassNotFoundException){
             NoOpInstruction(label, line)
-        } else {
-            var param = const.parameters
-                    .map {
-                if (it.type.jvmErasure.equals(kotlin.Int::class)) scanInt() else scan()
-            }.toTypedArray()
-            return const.call(*param) as Instruction
         }
     }
 

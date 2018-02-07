@@ -16,6 +16,6 @@ class OutInstruction(label: String, val op1 : Int) : Instruction(label, "out"){
     }
 
     override fun toString(): String {
-        return super.toString() + " the value of register " + op1 + " is " +
+        return super.toString() + " the value of register " + op1 + " is "
     }
 }
