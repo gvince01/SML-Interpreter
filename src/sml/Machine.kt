@@ -102,28 +102,27 @@ data class Machine(var pc: Int, val noOfRegisters: Int) {
      * Translate line into an instruction with label label and return the instruction
      */
     fun getInstruction(label: String): Instruction {
-        val s1: Int // Possible operands of the instruction
-        val s2: Int
-        val r: Int
-        var label2: String
-
+        print("this is line " + line)
         val ins = scan()
         val modIns = ins.capitalize()
         val kclass = Class.forName("sml.instructions." + modIns + "Instruction").kotlin
-        val const = kclass.constructors.first()
-        val param = const.parameters.size
-        var args =  mutableMapOf<KParameter, Any>()
-        args.put(const.parameters.get(0), label)
-        var tmp : Any
-        for(i in 1 until (param)){
-            when (ins.equals("bnz") && i == (param - 1)){
-                true -> tmp = scan()
-                false -> tmp = scanInt()
+        val const = kclass.primaryConstructor
+        return if (const == null) {
+            NoOpInstruction(label, ins)
+        } else {
+            val param = const.parameters.size
+            var args = mutableMapOf<KParameter, Any>()
+            args.put(const.parameters.get(0), label)
+            var tmp: Any
+            for (i in 1 until (param)) {
+                when (ins.equals("bnz") && i == (param - 1)) {
+                    true -> tmp = scan()
+                    false -> tmp = scanInt()
+                }
+                args.put(const.parameters[i], tmp)
             }
-            args.put(const.parameters[i], tmp)
+            return const.callBy(args) as Instruction
         }
-        return const.callBy(args) as Instruction
-
 //        return when (ins) { // replace with reflection
 //            "add" -> {
 //                r = scanInt()
