@@ -109,76 +109,15 @@ data class Machine(var pc: Int, val noOfRegisters: Int) {
         val kclass = Class.forName("sml.instructions." + ins.capitalize() + "Instruction").kotlin
         val const = kclass.primaryConstructor
         return if (const == null) {
-            NoOpInstruction(label, ins)
+            NoOpInstruction(label, line)
         } else {
-            val param = const.parameters
+            var param = const.parameters
                     .map {
                 if (it.type.jvmErasure.equals(kotlin.Int::class)) scanInt() else scan()
             }.toTypedArray()
-            println(param.size)
-            param.forEach { println("typed param array number " + it) }
-//            var args = mutableMapOf<KParameter, Any>()
-//            args.put(const.parameters.get(0), label)
-//            var tmp: Any
-//            for (i in 1 until (param)) {
-//                when (it.type.jvmErasure.equals(kotlin.String::class)) {
-//                    true -> tmp = scan()
-//                    false -> tmp = scanInt()
-//                }
-//                args.put(const.parameters[i], tmp)
-//            }
             return const.call(*param) as Instruction
         }
     }
-//        return when (ins) { // replace with reflection
-//            "add" -> {
-//                r = scanInt()
-//                s1 = scanInt()
-//                s2 = scanInt()
-//                AddInstruction(label, r, s1, s2)
-//            }
-//            "lin" -> {
-//                r = scanInt()
-//                s1 = scanInt()
-//                LinInstruction(label, r, s1)
-//            }
-//
-//            "sub" -> {
-//                r = scanInt()
-//                s1 = scanInt()
-//                s2 = scanInt()
-//                SubInstruction(label, r, s1, s2)
-//            }
-//
-//            "mul" -> {
-//                r = scanInt()
-//                s1 = scanInt()
-//                s2 = scanInt()
-//                MulInstruction(label, r, s1, s2)
-//            }
-//
-//            "div" -> {
-//                r = scanInt()
-//                s1 = scanInt()
-//                s2 = scanInt()
-//                DivInstruction(label, r, s1, s2)
-//            }
-//
-//            "out" -> {
-//                s1 = scanInt()
-//                OutInstruction(label, s1)
-//            }
-//
-//            "bnz" -> {
-//                s1 = scanInt()
-//                label2 = scan()
-//                BnzInstruction(label, s1, label2)
-//            }
-//
-//
-//            else -> {
-//                NoOpInstruction(label, line)
-//            }
 
     /*
      * Return the first word of line and remove it from line. If there is no
@@ -215,3 +154,14 @@ data class Machine(var pc: Int, val noOfRegisters: Int) {
         }
     }
 }
+
+//            var args = mutableMapOf<KParameter, Any>()
+//            args.put(const?.parameters.get(0), label)
+//            var tmp: Any
+//            for (i in 1 until (param)) {
+//                when (it.type.jvmErasure.equals(kotlin.String::class)) {
+//                    true -> tmp = scan()
+//                    false -> tmp = scanInt()
+//                }
+//                args.put(const.parameters[i], tmp)
+//            }
