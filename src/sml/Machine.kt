@@ -114,19 +114,18 @@ data class Machine(var pc: Int, val noOfRegisters: Int) {
             val param = const.parameters.map {
                 if (it.type.jvmErasure.equals(kotlin.String::class)) scan() else scanInt()
             }.toTypedArray()
-            print(param.forEach { println("typed param array number " + it) })
-
+            param.forEach { println("typed param array number " + it) }
 //            var args = mutableMapOf<KParameter, Any>()
 //            args.put(const.parameters.get(0), label)
 //            var tmp: Any
 //            for (i in 1 until (param)) {
-//                when (ins.equals("bnz") && i == (param - 1)) {
+//                when (it.type.jvmErasure.equals(kotlin.String::class)) {
 //                    true -> tmp = scan()
 //                    false -> tmp = scanInt()
 //                }
 //                args.put(const.parameters[i], tmp)
 //            }
-            return const.call(param) as Instruction
+            return const.call(*param) as Instruction
         }
     }
 //        return when (ins) { // replace with reflection
