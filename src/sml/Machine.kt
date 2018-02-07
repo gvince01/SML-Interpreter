@@ -10,9 +10,12 @@ import java.util.Scanner
 import kotlin.collections.ArrayList
 import kotlin.reflect.KParameter
 import kotlin.reflect.KProperty
+import kotlin.reflect.KType
 import kotlin.reflect.full.createInstance
+import kotlin.reflect.full.createType
 import kotlin.reflect.full.primaryConstructor
 import kotlin.reflect.jvm.javaConstructor
+import kotlin.reflect.jvm.jvmErasure
 import kotlin.reflect.jvm.reflect
 
 /*
@@ -102,27 +105,30 @@ data class Machine(var pc: Int, val noOfRegisters: Int) {
      * Translate line into an instruction with label label and return the instruction
      */
     fun getInstruction(label: String): Instruction {
-        print("this is line " + line)
         val ins = scan()
-        val modIns = ins.capitalize()
-        val kclass = Class.forName("sml.instructions." + modIns + "Instruction").kotlin
+        val kclass = Class.forName("sml.instructions." + ins.capitalize() + "Instruction").kotlin
         val const = kclass.primaryConstructor
         return if (const == null) {
             NoOpInstruction(label, ins)
         } else {
-            val param = const.parameters.size
-            var args = mutableMapOf<KParameter, Any>()
-            args.put(const.parameters.get(0), label)
-            var tmp: Any
-            for (i in 1 until (param)) {
-                when (ins.equals("bnz") && i == (param - 1)) {
-                    true -> tmp = scan()
-                    false -> tmp = scanInt()
-                }
-                args.put(const.parameters[i], tmp)
-            }
-            return const.callBy(args) as Instruction
+            val param = const.parameters.map {
+                if (it.type.jvmErasure.equals(kotlin.String::class)) scan() else scanInt()
+            }.toTypedArray()
+            print(param.forEach { println("typed param array number " + it) })
+
+//            var args = mutableMapOf<KParameter, Any>()
+//            args.put(const.parameters.get(0), label)
+//            var tmp: Any
+//            for (i in 1 until (param)) {
+//                when (ins.equals("bnz") && i == (param - 1)) {
+//                    true -> tmp = scan()
+//                    false -> tmp = scanInt()
+//                }
+//                args.put(const.parameters[i], tmp)
+//            }
+            return const.call(param) as Instruction
         }
+    }
 //        return when (ins) { // replace with reflection
 //            "add" -> {
 //                r = scanInt()
@@ -172,7 +178,6 @@ data class Machine(var pc: Int, val noOfRegisters: Int) {
 //            else -> {
 //                NoOpInstruction(label, line)
 //            }
-        }
 
     /*
      * Return the first word of line and remove it from line. If there is no
