@@ -111,9 +111,11 @@ data class Machine(var pc: Int, val noOfRegisters: Int) {
         return if (const == null) {
             NoOpInstruction(label, ins)
         } else {
-            val param = const.parameters.map {
-                if (it.type.jvmErasure.equals(kotlin.String::class)) scan() else scanInt()
+            val param = const.parameters
+                    .map {
+                if (it.type.jvmErasure.equals(kotlin.Int::class)) scanInt() else scan()
             }.toTypedArray()
+            println(param.size)
             param.forEach { println("typed param array number " + it) }
 //            var args = mutableMapOf<KParameter, Any>()
 //            args.put(const.parameters.get(0), label)
