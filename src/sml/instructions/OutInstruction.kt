@@ -12,9 +12,10 @@ class OutInstruction(label: String, val op1 : Int) : Instruction(label, "out"){
 
     override fun execute(m: Machine) {
         var outString = m.registers.getRegister(op1)
+        println(outString)
     }
 
     override fun toString(): String {
-        return super.toString() + " the value of " + op1 + " is "
+        return super.toString() + " printing the value in " + op1
     }
 }
