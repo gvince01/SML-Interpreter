@@ -105,23 +105,6 @@ data class Machine(var pc: Int, val noOfRegisters: Int) {
      * Translate line into an instruction with label label and return the instruction
      */
     fun getInstruction(label: String): Instruction {
-
-
-//        val modIns = ins.capitalize()
-//        val kclass = Class.forName("sml.instructions." + modIns + "Instruction").kotlin
-//        val const = kclass.constructors.first()
-//        val param = const.parameters.size
-//        var args =  mutableMapOf<KParameter, Any>()
-//        args.put(const.parameters.get(0), label)
-//        var tmp : Any
-//        for(i in 1 until (param)){
-//            when (ins.equals("bnz") && i == (param - 1)){
-//                true -> tmp = scan()
-//                false -> tmp = scanInt()
-//            }
-//            args.put(const.parameters[i], tmp)
-//        }
-//        return const.callBy(args) as Instruction
         val ins = scan()
         line = label + line
         return try {
