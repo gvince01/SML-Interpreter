@@ -10,9 +10,12 @@ import java.util.Scanner
 import kotlin.collections.ArrayList
 import kotlin.reflect.KParameter
 import kotlin.reflect.KProperty
+import kotlin.reflect.KType
 import kotlin.reflect.full.createInstance
+import kotlin.reflect.full.createType
 import kotlin.reflect.full.primaryConstructor
 import kotlin.reflect.jvm.javaConstructor
+import kotlin.reflect.jvm.jvmErasure
 import kotlin.reflect.jvm.reflect
 
 /*
@@ -102,23 +105,36 @@ data class Machine(var pc: Int, val noOfRegisters: Int) {
      * Translate line into an instruction with label label and return the instruction
      */
     fun getInstruction(label: String): Instruction {
+
+
+//        val modIns = ins.capitalize()
+//        val kclass = Class.forName("sml.instructions." + modIns + "Instruction").kotlin
+//        val const = kclass.constructors.first()
+//        val param = const.parameters.size
+//        var args =  mutableMapOf<KParameter, Any>()
+//        args.put(const.parameters.get(0), label)
+//        var tmp : Any
+//        for(i in 1 until (param)){
+//            when (ins.equals("bnz") && i == (param - 1)){
+//                true -> tmp = scan()
+//                false -> tmp = scanInt()
+//            }
+//            args.put(const.parameters[i], tmp)
+//        }
+//        return const.callBy(args) as Instruction
         val ins = scan()
-        val modIns = ins.capitalize()
-        val kclass = Class.forName("sml.instructions." + modIns + "Instruction").kotlin
-        val const = kclass.constructors.first()
-        val param = const.parameters.size
-        var args =  mutableMapOf<KParameter, Any>()
-        args.put(const.parameters.get(0), label)
-        var tmp : Any
-        for(i in 1 until (param)){
-            when (ins.equals("bnz") && i == (param - 1)){
-                true -> tmp = scan()
-                false -> tmp = scanInt()
-            }
-            args.put(const.parameters[i], tmp)
+        line = label + line
+        return try {
+            val kclass = Class.forName("sml.instructions." + ins.capitalize() + "Instruction").kotlin
+            val const = kclass.constructors.first()
+            var param = const.parameters.map {
+                    if (it.type.jvmErasure.equals(kotlin.Int::class)) scanInt() else scan()
+                }.toTypedArray()
+            const.call(*param) as Instruction
+        } catch (ex: ClassNotFoundException){
+            NoOpInstruction(label, line)
         }
-        return const.callBy(args) as Instruction
-        }
+    }
 
     /*
      * Return the first word of line and remove it from line. If there is no
@@ -155,3 +171,14 @@ data class Machine(var pc: Int, val noOfRegisters: Int) {
         }
     }
 }
+
+//            var args = mutableMapOf<KParameter, Any>()
+//            args.put(const?.parameters.get(0), label)
+//            var tmp: Any
+//            for (i in 1 until (param)) {
+//                when (it.type.jvmErasure.equals(kotlin.String::class)) {
+//                    true -> tmp = scan()
+//                    false -> tmp = scanInt()
+//                }
+//                args.put(const.parameters[i], tmp)
+//            }
