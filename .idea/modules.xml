@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/coursework-one.iml" filepath="$PROJECT_DIR$/coursework-one.iml" />
+      <module fileurl="file://$PROJECT_DIR$/SML-Interpreter.iml" filepath="$PROJECT_DIR$/SML-Interpreter.iml" />
     </modules>
   </component>
 </project>

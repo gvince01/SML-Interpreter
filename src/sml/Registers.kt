@@ -1,12 +1,5 @@
 package sml
 
-/**
- * This class ....
- *
- * An instance contains 32 registers and methods to access and change them
- *
- * @author someone
- */
 
 data class Registers(val NUMBEROFREGISTERS: Int) {
     val registers: IntArray = IntArray(NUMBEROFREGISTERS)
