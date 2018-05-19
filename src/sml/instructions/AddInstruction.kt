@@ -3,10 +3,6 @@ package sml.instructions
 import sml.Instruction
 import sml.Machine
 
-/**
- * Describes the SML ADD instruction
- *
- */
 class AddInstruction(label: String, val result: Int, val op1: Int, val op2: Int) : Instruction(label, "add") {
 
     override fun execute(m: Machine) {
